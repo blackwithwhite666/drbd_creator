@@ -73,7 +73,7 @@ class DrbdManager(BaseManager):
         return int(self.DISK_MATCH.match(params['device']).group(1))
     
     def generate_drbd_config(self, template, port, minor, name, lv_path):
-        return template % {'port': port, 'minor': minor, 'name': name, 'lv_path': self.lv_path}
+        return template % {'port': port, 'minor': minor, 'name': name, 'lv_path': lv_path}
     
     def generate_drbd_path(self, name):
         return os.path.join('/etc', 'drbd.d', '%s.res' % name)
