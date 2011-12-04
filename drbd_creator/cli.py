@@ -64,13 +64,12 @@ def main():
     
     if options.verbose or options.dry_run:
         debug()
-        
-    primary_host = '192.168.0.171'
     
     logger.info('Connect to %s' % ", ".join(options.host))
     default_params = {'username': options.user, 'password': '', 
                       'private_key': options.private_key or None,
                       'port': options.port}
+    primary_host = options.host[0]
     hosts_params = map(lambda host: dict(default_params.items() + [('host', host)]), options.host)
 
     try:
