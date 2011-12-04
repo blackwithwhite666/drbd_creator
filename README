@@ -1,0 +1,7 @@
+drbd_creator is a python command-line tool that simplify ``DRBD``
+configuration. It automatically create ``DRBD`` resource over ``LVM``
+logical volume. 
+
+Usage:
+
+  ./create-drbd.py -n <resource-name> -s <size> -g <vg-name> --host <host1> --host <host2>
