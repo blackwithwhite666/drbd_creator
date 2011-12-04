@@ -12,16 +12,16 @@ resource %(name)s {
     no-disk-barrier;
     no-disk-flushes;
   }
-  on orb1-vmm1 {
+  on <host1> {
     device    /dev/drbd%(minor)d;
     disk      %(lv_path)s;
-    address   192.168.212.2:%(port)d;
+    address   <host1-ip>:%(port)d;
     meta-disk internal;
   }
-  on orb1-vmm2 {
+  on <host2-ip> {
     device    /dev/drbd%(minor)d;
     disk      %(lv_path)s;
-    address   192.168.212.1:%(port)d;
+    address   <host2-ip>:%(port)d;
     meta-disk internal;
   }
 }
