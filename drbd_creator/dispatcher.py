@@ -125,7 +125,7 @@ class Dispatcher(object):
         self.managers.drbd.up_drbd_resource(name=self.name)
         
         # Overwrite drbd resource on primary host
-        self.managers.drbd.overwrite_drbd_peer(name=self.name, specified_host=self.primary_host)
+        self.managers.drbd.overwrite_drbd_peer(name=self.name, specified_manager=self.primary_host)
     
     def check_drbd_success(self):
         def on_resource_not_found(manager, result, **kwargs):
