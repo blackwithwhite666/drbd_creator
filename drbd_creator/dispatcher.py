@@ -20,11 +20,11 @@ class DrbdParamsComputer(object):
         
     @property
     def port(self):
-        return None if self._port is None else (self._port + 1)
+        return 7788 if self._port is None else (self._port + 1)
     
     @property
     def minor(self):
-        return None if self._minor is None else (self._minor + 1)
+        return 1 if self._minor is None else (self._minor + 1)
     
 
 
