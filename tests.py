@@ -4,6 +4,19 @@ from drbd_creator.parsers import DrbdConfigParser, LvmConfigParser
 
 
 DRBD_CONFIG = """
+global {
+    minor-count 128;
+}
+common {
+    protocol               C;
+    disk {
+        fencing          resource-only;
+    }
+    handlers {
+        fence-peer       /usr/lib/drbd/crm-fence-peer.sh;
+        after-resync-target /usr/lib/drbd/crm-unfence-peer.sh;
+    }
+}
 resource msk1-g-cm1 {
   net {
     allow-two-primaries;

@@ -35,6 +35,8 @@ class DrbdConfigParser(BaseConfigParser):
             self.state.create_resource()
         elif token.type == 'COMMON':
             self.state.create_common()
+        elif token.type == 'GLOBAL':
+            self.state.create_global()
         elif token.type == 'NAME' or token.type == 'HOST':
             self.state.create_param(token.type, token.value)
         elif token.type == 'VALUE':

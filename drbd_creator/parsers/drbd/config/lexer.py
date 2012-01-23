@@ -8,6 +8,7 @@ class DrbdConfigLexer:
         'on' : 'HOST',
         'resource': 'RESOURCE',
         'common': 'COMMON',
+        'global': 'GLOBAL',
     }
     
     # List of token names.   This is always required

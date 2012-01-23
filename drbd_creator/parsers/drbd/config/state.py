@@ -22,6 +22,8 @@ class State(object):
     def create_common(self):
         raise NotImplementedError()
 
+    def create_global(self):
+        raise NotImplementedError()
 
 class WaitOpenState(State):
     def open_bracket(self):
@@ -42,6 +44,12 @@ class ResourceState(State):
     
     def create_common(self):
         section = Section('COMMON')
+        self.dispatcher.config.append(section)
+        self.dispatcher.current_container = section.container
+        self.dispatcher.state = self.dispatcher.wait_open_state
+    
+    def create_global(self):
+        section = Section('GLOBAL')
         self.dispatcher.config.append(section)
         self.dispatcher.current_container = section.container
         self.dispatcher.state = self.dispatcher.wait_open_state
